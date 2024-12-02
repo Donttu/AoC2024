@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Toni\\Desktop\\AoC2024\\Template\\Template\\Template.csproj",
+      "projectUniqueName": "C:\\Users\\Toni\\Desktop\\Coding\\AoC2024\\Template\\Template\\Template.csproj",
       "projectName": "Template",
-      "projectPath": "C:\\Users\\Toni\\Desktop\\AoC2024\\Template\\Template\\Template.csproj",
+      "projectPath": "C:\\Users\\Toni\\Desktop\\Coding\\AoC2024\\Template\\Template\\Template.csproj",
       "packagesPath": "C:\\Users\\Toni\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Toni\\Desktop\\AoC2024\\Template\\Template\\obj\\",
+      "outputPath": "C:\\Users\\Toni\\Desktop\\Coding\\AoC2024\\Template\\Template\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Toni\\AppData\\Roaming\\NuGet\\NuGet.Config"

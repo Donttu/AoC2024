@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Toni\\Desktop\\Coding\\AoC2024\\Day 3\\Day 3.csproj",
+      "projectUniqueName": "C:\\Users\\Toni\\Desktop\\Coding\\AoC2024\\Day03\\Day 3.csproj",
       "projectName": "Day 3",
-      "projectPath": "C:\\Users\\Toni\\Desktop\\Coding\\AoC2024\\Day 3\\Day 3.csproj",
+      "projectPath": "C:\\Users\\Toni\\Desktop\\Coding\\AoC2024\\Day03\\Day 3.csproj",
       "packagesPath": "C:\\Users\\Toni\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Toni\\Desktop\\Coding\\AoC2024\\Day 3\\obj\\",
+      "outputPath": "C:\\Users\\Toni\\Desktop\\Coding\\AoC2024\\Day03\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Toni\\AppData\\Roaming\\NuGet\\NuGet.Config"
