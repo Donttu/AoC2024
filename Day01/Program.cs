@@ -19,19 +19,18 @@ namespace Day1
             string choice = Console.ReadLine() ?? string.Empty;
 
             Console.WriteLine("Enter the input (separated by newline):");
+
             string input = string.Empty;
             string line;
-            while ((line = Console.ReadLine() ?? string.Empty) != null)
+            while ((line = Console.ReadLine() ?? string.Empty) != string.Empty)
             {
                 input += line + Environment.NewLine;
-                if (line == string.Empty)
-                {
-                    break;
-                }
             }
 
-            string[] lines = input.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+            string[] lines = input.Trim().Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 
+            Console.WriteLine(lines.Length);
+            
             switch (choice)
             {
                 case "1":
@@ -44,6 +43,7 @@ namespace Day1
                     Console.WriteLine("Invalid choice. Please choose a valid part.");
                     break;
             }
+            
         }        
     }
 
@@ -65,7 +65,7 @@ namespace Day1
             {
                 int difference = Math.Max(pair[0], pair[1]) - Math.Min(pair[0], pair[1]);
                 sumOfDifferences += difference;
-                Console.WriteLine($"Difference: {difference}");
+                //Console.WriteLine($"Difference: {difference}");
             }
 
             Console.WriteLine($"Sum of differences: {sumOfDifferences}");

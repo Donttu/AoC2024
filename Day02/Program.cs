@@ -5,6 +5,13 @@ namespace Day2
 {
     class Program
     {
+        /// <summary>
+        /// Main entry point for the program. Prompts the user to choose a part to execute
+        /// and reads input data from the console.
+        /// Depending on the user's choice, executes either Part1 or Part2 logic, passing
+        /// the input data as an array of strings, where each string represents a line of input.
+        /// </summary>
+        /// <param name="args">Command line arguments.</param>
         static void Main(string[] args)
         {
             Console.WriteLine("Choose a part to execute:");
@@ -14,18 +21,15 @@ namespace Day2
             string choice = Console.ReadLine() ?? string.Empty;
 
             Console.WriteLine("Enter the input (separated by newline):");
+
             string input = string.Empty;
             string line;
-            while ((line = Console.ReadLine() ?? string.Empty) != null)
+            while ((line = Console.ReadLine() ?? string.Empty) != string.Empty)
             {
                 input += line + Environment.NewLine;
-                if (line == string.Empty)
-                {
-                    break;
-                }
             }
 
-            string[] lines = input.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+            string[] lines = input.Trim().Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 
             switch (choice)
             {
