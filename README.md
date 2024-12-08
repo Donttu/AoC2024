@@ -9,3 +9,7 @@ I acknowledge that my solutions may not be the most optimized or utilize the mos
 This is partly due to my current skill level and knowledge of libraries.
 Since C# was the first language I used to learn the basics of programming, I continue to use it. 
 Therefore, my focus is also on maintaining readability for novice programmers and thoroughly documenting the essential steps of each program.
+
+## Advent of Code 2024 Progress
+
+<!--- advent_readme_stars table --->
