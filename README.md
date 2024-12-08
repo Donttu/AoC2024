@@ -5,5 +5,6 @@ This year, I plan to upload my solutions here.
 While there is no specific reason for this, I believe it is beneficial to have them saved in this repository.
 
 My goal is to write code in a language that is accessible and easy to understand for everyone. 
-I acknowledge that my solutions may not be the most optimized or utilize the most complex and/or efficient methods. 
-My focus is on maintaining readability for novice programmers and thoroughly documenting the essential steps of each program.
+I acknowledge that my solutions may not be the most optimized or utilize the most complex and efficient methods. 
+This is partly due to my current skill level and knowledge of libraries. 
+Therefore, my focus is on maintaining readability for novice programmers and thoroughly documenting the essential steps of each program.
