@@ -12,4 +12,4 @@ Therefore, my focus is also on maintaining readability for novice programmers an
 
 ## Advent of Code 2024 Progress
 
-<!--- advent_readme_stars table --->
+<!--- advent_readme_times table --->
