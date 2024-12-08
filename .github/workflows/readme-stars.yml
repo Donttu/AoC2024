@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Pull latest changes
+        run: git pull origin main
       - uses: k2bd/advent-readme-stars@v1
         with:
           userId: 4296036
