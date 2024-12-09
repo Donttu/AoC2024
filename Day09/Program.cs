@@ -16,8 +16,6 @@ namespace Day09
 
             string choice = Console.ReadLine() ?? string.Empty;
 
-            Console.WriteLine("Enter the input (separated by newline):");
-
             switch (choice)
             {
                 case "1":
@@ -33,8 +31,16 @@ namespace Day09
         }
     }
 
-    public class Part1 // 6337921897505
+    public class Part1
     {
+        /// <summary>
+        /// Executes part 1 of the day's puzzle.
+        /// Reads the input line, converts it into a list of numbers.
+        /// Creates a disk layout by repeating the numbers.
+        /// Moves the file blocks to the left
+        /// Calculates the checksum by summing the index of each number times the number.
+        /// Prints the checksum.
+        /// </summary>
         public static void Execute()
         {
             string inputFile = Path.GetFullPath(@"..\..\..\input.txt");
@@ -125,8 +131,16 @@ namespace Day09
         }
     }
 
-    public class Part2 // 6362722604045
+    public class Part2
     {
+        /// <summary>
+        /// Executes part 2 of the day's puzzle.
+        /// Reads the input file and parses it into a list of numbers.
+        /// Creates a disk layout by repeating numbers and adding gaps.
+        /// Shifts file blocks to fill appropriate gaps based on their field IDs.
+        /// Calculates the checksum by summing the index of each number multiplied by the number itself.
+        /// Prints the checksum.
+        /// </summary>
         public static void Execute()
         {
             string inputFile = Path.GetFullPath(@"..\..\..\input.txt");
@@ -192,7 +206,6 @@ namespace Day09
                     }
                 }
 
-
                 int gapStartIndex = -1;
                 int actualGapSize = 0;
                 for (int i = 0; i < highFileIdIndex; i++)
@@ -225,8 +238,6 @@ namespace Day09
 
                 highestFieldId--;
             }
-
-
 
             long checksum = 0;
 
