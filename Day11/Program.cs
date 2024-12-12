@@ -1,7 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Numerics;
 
-namespace DayX
+namespace Day11
 {
     class Program
     {
@@ -93,72 +94,79 @@ namespace DayX
     {
         public static void Execute(string[] lines)
         {
-            List<long> numbers = lines[0].Split(' ').Select(long.Parse).ToList();
-            List<long> result = new List<long>();
-
-            foreach (long number in numbers)
-            {
-                List<long> blinkedNumbers = BlinkNumber(number, 75);
-                result.AddRange(blinkedNumbers);
-                Console.WriteLine("Number: " + number + " handled.");
-            }
-
-            Console.WriteLine("Result: Count: " + result.Count);
+            var input = lines[0].Trim().Split(' ').Select(long.Parse).ToList();
+            var part2 = Part02(input);
+            Console.WriteLine($"Part 2: {part2}");
             Console.WriteLine("Part 2 executed.");
         }
 
-        private static List<long> BlinkNumber(long number, int times)
-        {
-            List<long> numbers = new List<long> { number };
+        private static long Part02(IReadOnlyList<long> input) => Blink(input, 75);
 
-            for (int i = 0; i < times; i++)
+        private static long Blink(IReadOnlyList<long> input, int times)
+        {
+            // Initialize an empty dictionary to store stones and their counts
+            var stonesDict = new Dictionary<long, long>();
+
+            // Add the initial stones to the dictionary
+            foreach (var b in input)
             {
-                numbers = Blink(numbers);
+                Add(b, 1);
             }
 
-            return numbers;
-        }
-
-        private static List<long> Blink(List<long> numbers)
-        {
-            List<long> newNumbers = new List<long>();
-
-            foreach (long n in numbers)
+            // Loop through the number of times (blinks) specified
+            for (var i = 0; i < times; i++)
             {
-                if (n == 0)
+                // Iterate through a copy of the dictionary
+                foreach (var (key, count) in stonesDict.ToList())
                 {
-                    newNumbers.Add(1);
-                }
-                else if (HasEvenNumberOfDigits(Math.Abs(n)))
-                {
-                    string numStr = Math.Abs(n).ToString();
-                    int middleIndex = numStr.Length / 2;
-                    string firstHalf = numStr.Substring(0, middleIndex);
-                    string secondHalf = numStr.Substring(middleIndex);
+                    // Remove the current stone key and its count
+                    Remove(key, count);
 
-                    long firstHalfInt = long.Parse(firstHalf);
-                    long secondHalfInt = long.Parse(secondHalf);
-
-                    if (n < 0)
+                    // If the key is 0, add a stone with key 1
+                    if (key == 0)
                     {
-                        firstHalfInt = -firstHalfInt;
+                        Add(1, count);
                     }
+                    else
+                    {
+                        // Convert the key to a string to check its length
+                        var digits = key.ToString();
 
-                    newNumbers.Add(firstHalfInt);
-                    newNumbers.Add(secondHalfInt);
-                }
-                else
-                {
-                    newNumbers.Add(n * 2024);
+                        // If the number of digits is odd, multiply the key by 2024 and add it
+                        if (digits.Length % 2 == 1)
+                        {
+                            Add(key * 2024, count);
+                        }
+                        // If the number of digits is even, split the digits in half and parse each half as a new key   
+                        else
+                        {
+                            Add(long.Parse(digits.Substring(0, digits.Length / 2)), count);
+                            Add(long.Parse(digits.Substring(digits.Length / 2)), count);
+                        }
+                    }
                 }
             }
 
-            return newNumbers;
-        }
+            // Return the sum of all values in the dictionary
+            return stonesDict.Values.Sum();
 
-        private static bool HasEvenNumberOfDigits(long number)
-        {
-            return Math.Abs(number).ToString().Length % 2 == 0;
+            /// <summary>
+            /// Adds a key-value pair to the dictionary, or updates the value if the key already exists.
+            /// </summary>
+            /// <param name="key">The key to add or update.</param>
+            /// <param name="value">The value to add or update.</param>
+            void Add(long key, long value)
+            {
+                stonesDict.TryAdd(key, 0);
+                stonesDict[key] += value;
+            }
+
+            /// <summary>
+            /// Removes a key-value pair from the dictionary if the value is 0.
+            /// </summary>
+            /// <param name="key">The key to remove.</param>
+            /// <param name="value">The value to remove.</param>
+            void Remove(long key, long value) => stonesDict[key] -= value;
         }
     }
 }
