@@ -32,9 +32,6 @@ namespace Day13
     {
         public static void Execute()
         {
-            // Split the input into a list of strings by a full empty row
-            //string[] games = input.Split(new string[] { "\n\n" }, StringSplitOptions.None);
-
             string inputFile = Path.GetFullPath(@"..\..\..\input.txt");
             string[] input = File.ReadAllLines(inputFile);
 
@@ -60,7 +57,7 @@ namespace Day13
                 // Calculate unit cost for a single game
                 decimal bpresses = ((buttonAX * prizeY) - (buttonAY * prizeX)) / ((buttonAX * buttonBY) - (buttonAY * buttonBX));
                 decimal apresses = (prizeX - (buttonBX * bpresses)) / buttonAX;
-                // I wish I studied more maths. These seemed very complicated at first.. but fuck, this is simple as hell.
+                // I wish I studied more maths. These seemed very complicated at first when I inspected the problem... but fuck, this is simple as hell.
 
                 if (apresses % 1 == 0 && bpresses % 1 == 0) totalCost += (apresses * 3) + bpresses;
             }
